@@ -1,0 +1,26 @@
+--cpu Cortex-M3
+"multisensor\startup_stm32f103xe.o"
+"multisensor\main.o"
+"multisensor\gpio.o"
+"multisensor\usart.o"
+"multisensor\stm32f1xx_it.o"
+"multisensor\stm32f1xx_hal_msp.o"
+"multisensor\stm32f1xx_hal_gpio_ex.o"
+"multisensor\stm32f1xx_hal_tim.o"
+"multisensor\stm32f1xx_hal_tim_ex.o"
+"multisensor\stm32f1xx_hal_uart.o"
+"multisensor\stm32f1xx_hal.o"
+"multisensor\stm32f1xx_hal_rcc.o"
+"multisensor\stm32f1xx_hal_rcc_ex.o"
+"multisensor\stm32f1xx_hal_gpio.o"
+"multisensor\stm32f1xx_hal_dma.o"
+"multisensor\stm32f1xx_hal_cortex.o"
+"multisensor\stm32f1xx_hal_pwr.o"
+"multisensor\stm32f1xx_hal_flash.o"
+"multisensor\stm32f1xx_hal_flash_ex.o"
+"multisensor\stm32f1xx_hal_exti.o"
+"multisensor\system_stm32f1xx.o"
+--strict --scatter "MultiSensor\MultiSensor.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "MultiSensor.map" -o MultiSensor\MultiSensor.axf
