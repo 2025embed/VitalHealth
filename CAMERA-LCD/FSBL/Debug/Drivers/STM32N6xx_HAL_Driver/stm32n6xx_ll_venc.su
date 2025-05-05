@@ -1,0 +1,6 @@
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:679:22:LL_MEM_EnableClock	24	static
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:751:22:LL_MEM_DisableClock	16	static
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:3639:22:LL_APB5_GRP1_EnableClock	24	static
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:3683:22:LL_APB5_GRP1_DisableClock	16	static
+../Drivers/STM32N6xx_HAL_Driver/stm32n6xx_ll_venc.c:104:6:LL_VENC_Init	8	static
+../Drivers/STM32N6xx_HAL_Driver/stm32n6xx_ll_venc.c:125:6:LL_VENC_DeInit	8	static

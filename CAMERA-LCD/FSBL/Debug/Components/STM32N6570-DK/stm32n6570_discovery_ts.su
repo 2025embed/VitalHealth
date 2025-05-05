@@ -1,0 +1,16 @@
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:1407:22:LL_AHB4_GRP1_EnableClock	24	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:128:9:BSP_TS_Init	56	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:191:9:BSP_TS_DeInit	24	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:225:9:BSP_TS_GetCapabilities	24	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:246:9:BSP_TS_EnableIT	40	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:298:9:BSP_TS_DisableIT	40	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:330:6:BSP_TS_IRQHandler	16	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:340:13:BSP_TS_Callback	16	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:355:9:BSP_TS_GetState	48	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:443:9:BSP_TS_Get_MultiTouchState	128	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:539:9:BSP_TS_GestureConfig	24	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:564:9:BSP_TS_GetGestureId	24	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:616:9:BSP_TS_Set_Orientation	16	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:628:9:BSP_TS_Get_Orientation	16	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:646:16:GT911_Probe	48	static
+../Components/STM32N6570-DK/stm32n6570_discovery_ts.c:691:13:TS_EXTI_Callback	8	static
