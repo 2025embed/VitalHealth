@@ -1,0 +1,127 @@
+ST Edge AI Core v2.0.0-20049
+Created date          : 2025-06-24 23:12:39
+Parameters            : generate --target stm32n6 --name tof -m D:/tof_model.onnx --st-neural-art TOF@D:/STM32cubemx/Respository/Packs/STMicroelectronics/X-CUBE-AI/10.0.0/scripts/N6_scripts/user_neuralart.json --workspace C:/Users/ZHANGY~1/AppData/Local/Temp/mxAI_workspace6022188527164003590162142310721150 --output C:/Users/Zhangyifan/.stm32cubemx/network_output
+
+Model name - tof_model
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+m_id   layer (original)                     oshape               param/size          macc               connected to 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+9      fc1_weight (Gemm)                    [b:128,c:128]        16,384/65,536                                       
+       fc1_bias (Gemm)                      [b:128]              128/512                                             
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+11     fc2_weight (Gemm)                    [b:5,c:128]          640/2,560                                           
+       fc2_bias (Gemm)                      [b:5]                5/20                                                
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+0      input ()                             [b:1,h:8,w:8,c:1]                                                        
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+1      _conv1_Conv_output_0 (Conv)          [b:1,h:8,w:8,c:16]   160/640            9,232                      input 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+2      _Relu_output_0 (Relu)                [b:1,h:8,w:8,c:16]                      1,024       _conv1_Conv_output_0 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+3      _pool_MaxPool_output_0 (MaxPool)     [b:1,h:4,w:4,c:16]                      1,024             _Relu_output_0 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+4      _conv2_Conv_output_0 (Conv)          [b:1,h:4,w:4,c:32]   4,640/18,560      73,760     _pool_MaxPool_output_0 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+5      _Relu_1_output_0 (Relu)              [b:1,h:4,w:4,c:32]                        512       _conv2_Conv_output_0 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+6      _pool_1_MaxPool_output_0 (MaxPool)   [b:1,h:2,w:2,c:32]                        512           _Relu_1_output_0 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+8      _Reshape_output_0 (Reshape)          [b:1,c:128]                                     _pool_1_MaxPool_output_0 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+9      _fc1_Gemm_output_0 (Gemm)            [b:1,c:128]                            16,512          _Reshape_output_0 
+                                                                                                          fc1_weight 
+                                                                                                            fc1_bias 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+10     _Relu_2_output_0 (Relu)              [b:1,c:128]                               128         _fc1_Gemm_output_0 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+11     output (Gemm)                        [b:1,c:5]                                 645           _Relu_2_output_0 
+                                                                                                          fc2_weight 
+                                                                                                            fc2_bias 
+------ ------------------------------------ -------------------- --------------- -------- -------------------------- 
+model: macc=103,349 weights=87,828 activations=-- io=--
+
+
+
+
+
+Compilation details
+------------------------------------------------------------------------------------
+Compiler version: 0.0.0-0000
+Compiler arguments:  -i C:\Users\Zhangyifan\.stm32cubemx\network_output\tof_model_OE_3_1_0.onnx --json-quant-file C:\Users\Zhangyifan\.stm32cubemx\network_output\tof_model_OE_3_1_0_Q.json -g tof.c --load-mdesc D:\STM32cubemx\Respository\Packs\STMicroelectronics\X-CUBE-AI\10.0.0\Utilities\configs\stm32n6.mdesc --load-mpool D:\STM32cubemx\Respository\Packs\STMicroelectronics\X-CUBE-AI\10.0.0\scripts\N6_scripts\my_mpools\TOF.mpool --save-mpool-file C:\Users\Zhangyifan\AppData\Local\Temp\mxAI_workspace6022188527164003590162142310721150\neural_art__tof\TOF.mpool --out-dir-prefix C:\Users\Zhangyifan\AppData\Local\Temp\mxAI_workspace6022188527164003590162142310721150\neural_art__tof/ --optimization 3 --all-buffers-info --mvei --no-hw-sw-parallelism --cache-maintenance --Oalt-sched --native-float --enable-virtual-mem-pools --Omax-ca-pipe 4 --Oshuffle-dma --Ocache-opt --Os --output-info-file c_info.json --network-name tof
+====================================================================================
+
+Memory usage information
+------------------------------------------------------------------------------------
+	flexMEM    [0x34000000 - 0x34000000]:          0  B /          0  B  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	cpuRAM1    [0x34064000 - 0x34064000]:          0  B /          0  B  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	cpuRAM2    [0x34100000 - 0x34200000]:          0  B /      1.000 MB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	npuRAM3    [0x34200000 - 0x34270000]:          0  B /    448.000 kB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	npuRAM4    [0x34270000 - 0x342E0000]:          0  B /    448.000 kB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	npuRAM5    [0x342E0000 - 0x34350000]:      8.250 kB /    448.000 kB  (  1.84 % used) -- weights:          0  B (  0.00 % used)  activations:      8.250 kB (  1.84 % used)
+	npuRAM6    [0x34350000 - 0x343BFFF8]:          0  B /    447.992 kB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	octoFlash  [0x70500000 - 0x705FFFF8]:     85.770 kB /  1,023.992 kB  (  8.38 % used) -- weights:     85.770 kB (  8.38 % used)  activations:          0  B (  0.00 % used)
+	hyperRAM   [0x90000000 - 0x91FFFFF8]:          0  B /     32.000 MB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+---
+Total:                                            94.020 kB                                  -- weights:     85.770 kB                  activations:      8.250 kB                   
+====================================================================================
+
+
+Used memory ranges
+------------------------------------------------------------------------------------
+	npuRAM5    [0x342E0000 - 0x34350000]: 0x342E0000-0x342E2100
+	octoFlash  [0x70500000 - 0x705FFFF8]: 0x70500000-0x70515720
+====================================================================================
+
+Epochs details
+------------------------------------------------------------------------------------
+Total number of epochs: 17 of which 13 implemented in software
+---
+epoch ID   HW/SW/EC Operation (SW only)
+epoch 1      -SW-   (        Conv        )
+epoch 2      -SW-   (        Add         )
+epoch 3      -SW-   (        Relu        )
+epoch 4      -SW-   (      MaxPool       )
+epoch 5      -SW-   (        Conv        )
+epoch 6      -SW-   (        Add         )
+epoch 7      -SW-   (        Relu        )
+epoch 8      -SW-   (      MaxPool       )
+epoch 9       HW    
+epoch 10     -SW-   (        Conv        )
+epoch 11     -SW-   (        Add         )
+epoch 12      HW    
+epoch 13     -SW-   (        Relu        )
+epoch 14      HW    
+epoch 15     -SW-   (        Conv        )
+epoch 16     -SW-   (        Add         )
+epoch 17      HW    
+==================================================================================== 
+ Requested memory size by section - "stm32n6npu" target
+ ------------------------------- -------- --------- ------ ------- 
+ module                              text    rodata   data     bss 
+ ------------------------------- -------- --------- ------ ------- 
+ NetworkRuntime1000_CM55_GCC.a     12,536         0      0       0 
+ tof.o                              1,760     3,051     16       0 
+ lib (toolchain)*                  11,036     2,262      0       0 
+ ll atonn runtime                   7,746     7,064      0      29 
+ ------------------------------- -------- --------- ------ ------- 
+ RT total**                        33,078    12,377     16      29 
+ ------------------------------- -------- --------- ------ ------- 
+ weights                                0    87,828      0       0 
+ activations                            0         0      0   8,448 
+ io                                     0         0      0     276 
+ ------------------------------- -------- --------- ------ ------- 
+ TOTAL                             33,078   100,205     16   8,753 
+ ------------------------------- -------- --------- ------ ------- 
+ *  toolchain objects (libm/libgcc*)
+ ** RT AI runtime objects (kernels+infrastructure)
+  
+  Summary - "stm32n6npu" target
+  --------------------------------------------------
+               FLASH (ro)      %*   RAM (rw)      % 
+  --------------------------------------------------
+  RT total         45,471   34.1%         45   0.5% 
+  --------------------------------------------------
+  TOTAL           133,299              8,769        
+  --------------------------------------------------
+  *  rt/total
+

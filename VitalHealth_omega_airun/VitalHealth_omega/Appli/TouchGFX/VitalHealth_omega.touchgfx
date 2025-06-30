@@ -1,0 +1,513 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "LOADING",
+        "CanvasBufferSize": 12000,
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "bg",
+            "Width": 800,
+            "Height": 480,
+            "RelativeFilename": "__generated\\light_theme_images_backgrounds_800x480_shattered_rain.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "VITALHEALTH",
+            "X": 93,
+            "Y": 73,
+            "Width": 614,
+            "Height": 102,
+            "TextId": "title",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "CircleProgress",
+            "Name": "circleprog",
+            "X": 305,
+            "Y": 217,
+            "Width": 190,
+            "Height": 190,
+            "Color": {
+              "Red": 129,
+              "Green": 145,
+              "Blue": 165
+            },
+            "CenterX": 95.0,
+            "CenterY": 95.0,
+            "Radius": 85.0,
+            "LineWidth": 20.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Round",
+            "Preset": "light_theme\\presets\\circleprogress\\neutral_large.json",
+            "FileNameBackground": "__generated\\light_theme_images_widgets_circleprogress_backgrounds_large.png",
+            "ProgressRangeMax": 1000
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Loading",
+            "X": 93,
+            "Y": 291,
+            "Width": 157,
+            "Height": 42,
+            "TextId": "__SingleUse_ZK3Y",
+            "TextRotation": "0"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "wait",
+            "X": 534,
+            "Y": 294,
+            "Width": 173,
+            "Height": 37,
+            "TextId": "__SingleUse_QVKT",
+            "TextRotation": "0"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "per",
+            "X": 331,
+            "Y": 282,
+            "Width": 139,
+            "Height": 61,
+            "TextId": "__SingleUse_EZV9",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "percnt",
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Fadeable": true,
+            "Moveable": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "MAIN"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "MAIN",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "bg",
+            "Width": 800,
+            "Height": 480,
+            "RelativeFilename": "LTDC.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "info",
+            "X": 217,
+            "Y": 7,
+            "Width": 367,
+            "Height": 29,
+            "TextId": "intro",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "ButtonWithIcon",
+            "Name": "changelanguage",
+            "X": 700,
+            "Y": 3,
+            "Width": 100,
+            "Height": 36,
+            "Pressed": "__generated\\light_theme_images_widgets_button_regular_height_36_tiny_round_inactive.png",
+            "Released": "__generated\\light_theme_images_widgets_button_regular_height_36_tiny_round_inactive.png",
+            "IconPressed": "__generated\\icon_theme_images_action_language_50_50_E8F6FB.svg.png",
+            "IconReleased": "__generated\\icon_theme_images_action_language_50_50_E8F6FB.svg.png",
+            "IconX": 25,
+            "IconY": -7,
+            "IconHeight": 50,
+            "IconWidth": 50,
+            "Preset": "light_theme\\presets\\button\\regular\\height_36\\tiny_round_inactive.json"
+          },
+          {
+            "Type": "ButtonWithIcon",
+            "Name": "infobutton",
+            "Y": 3,
+            "Width": 100,
+            "Height": 36,
+            "Pressed": "__generated\\light_theme_images_widgets_button_regular_height_36_tiny_round_inactive.png",
+            "Released": "__generated\\light_theme_images_widgets_button_regular_height_36_tiny_round_inactive.png",
+            "IconPressed": "__generated\\icon_theme_images_action_info_50_50_E8F6FB.svg.png",
+            "IconReleased": "__generated\\icon_theme_images_action_info_50_50_E8F6FB.svg.png",
+            "IconX": 25,
+            "IconY": -7,
+            "IconHeight": 50,
+            "IconWidth": 50,
+            "Preset": "light_theme\\presets\\button\\regular\\height_36\\tiny_round_inactive.json"
+          },
+          {
+            "Type": "ImageProgress",
+            "Name": "scoreprog",
+            "X": 200,
+            "Y": 448,
+            "Width": 400,
+            "Height": 18,
+            "FileNameProgress": "__generated\\dark_theme_images_widgets_imageprogress_plain_thick_large_active.png",
+            "AnchorAtZero": true,
+            "Direction": "Right",
+            "Preset": "dark_theme\\presets\\imageprogress\\plain\\thick\\large_active.json",
+            "FileNameBackground": "__generated\\dark_theme_images_widgets_imageprogress_plain_thick_large.png",
+            "IndicatorPositionWidth": 400,
+            "IndicatorPositionHeight": 18,
+            "ProgressRangeMax": 100
+          },
+          {
+            "Type": "TextArea",
+            "Name": "posturediscrip",
+            "X": 660,
+            "Y": 379,
+            "Width": 115,
+            "Height": 21,
+            "TextId": "posturediscrip",
+            "TextRotation": "0",
+            "Color": {
+              "Green": 58,
+              "Blue": 219
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "tempdiscrip",
+            "X": 502,
+            "Y": 379,
+            "Width": 115,
+            "Height": 21,
+            "TextId": "tempdiscrip",
+            "TextRotation": "0",
+            "Color": {
+              "Green": 58,
+              "Blue": 219
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "humidiscrip",
+            "X": 343,
+            "Y": 379,
+            "Width": 115,
+            "Height": 21,
+            "TextId": "humidiscrip",
+            "TextRotation": "0",
+            "Color": {
+              "Green": 58,
+              "Blue": 219
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "lightdiscrip",
+            "X": 187,
+            "Y": 379,
+            "Width": 115,
+            "Height": 21,
+            "TextId": "lightdiscrip",
+            "TextRotation": "0",
+            "Color": {
+              "Green": 58,
+              "Blue": 219
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "CO2discrip",
+            "X": 29,
+            "Y": 379,
+            "Width": 115,
+            "Height": 21,
+            "TextId": "CO2discrip",
+            "TextRotation": "0",
+            "Color": {
+              "Green": 58,
+              "Blue": 219
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "postureinfo",
+            "X": 652,
+            "Y": 274,
+            "Width": 130,
+            "Height": 37,
+            "TextId": "postureinfo",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "posture",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "tempinfo",
+            "X": 502,
+            "Y": 230,
+            "Width": 115,
+            "Height": 36,
+            "TextId": "tempinfo",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "temp",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "humiinfo",
+            "X": 343,
+            "Y": 230,
+            "Width": 115,
+            "Height": 36,
+            "TextId": "humiinfo",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "humi",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "lightinfo",
+            "X": 187,
+            "Y": 230,
+            "Width": 115,
+            "Height": 36,
+            "TextId": "lightinfo",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "light",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "CO2info",
+            "X": 29,
+            "Y": 230,
+            "Width": 115,
+            "Height": 36,
+            "TextId": "CO2info",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "CO2",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "fatiguetext",
+            "X": 29,
+            "Y": 442,
+            "Width": 153,
+            "Height": 30,
+            "TextId": "fatiguetext",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 8,
+              "Green": 23,
+              "Blue": 89
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "degree",
+            "X": 614,
+            "Y": 438,
+            "Width": 77,
+            "Height": 38,
+            "TextId": "degree",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "fatidegree",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "suggest",
+            "X": 182,
+            "Y": 413,
+            "Width": 437,
+            "Height": 35,
+            "TextId": "suggest",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "suggestion",
+              "UseBuffer": true,
+              "BufferSize": 50
+            }
+          },
+          {
+            "Type": "ModalWindow",
+            "Name": "helpwindow",
+            "Width": 800,
+            "Height": 480,
+            "Visible": false,
+            "FileName": "__generated\\light_theme_images_containers_large_wide_outlined_dark.png",
+            "ModalX": 160,
+            "ModalY": 105,
+            "ModalWidth": 480,
+            "ModalHeight": 270,
+            "Alpha": 150,
+            "Components": [
+              {
+                "Type": "ScrollableContainer",
+                "Name": "scrollableContainer1",
+                "X": 11,
+                "Y": 10,
+                "Width": 407,
+                "Height": 141,
+                "HorizontalScrollEnabled": true,
+                "VerticalScrollEnabled": true,
+                "ScrollbarsVisibleOnPressed": true,
+                "ScrollbarsAlpha": 255,
+                "Components": [
+                  {
+                    "Type": "TextArea",
+                    "Name": "help",
+                    "Width": 407,
+                    "Height": 225,
+                    "TextId": "__SingleUse_6TKZ",
+                    "TextRotation": "0"
+                  }
+                ]
+              },
+              {
+                "Type": "ButtonWithIcon",
+                "Name": "close",
+                "X": 418,
+                "Y": 3,
+                "Width": 60,
+                "Height": 60,
+                "Pressed": "__generated\\light_theme_images_widgets_button_icon_round_tiny_outline_disabled.png",
+                "Released": "__generated\\light_theme_images_widgets_button_icon_round_tiny_outline_disabled.png",
+                "IconPressed": "__generated\\icon_theme_images_navigation_close_50_50_03031A.svg.png",
+                "IconReleased": "__generated\\icon_theme_images_navigation_close_50_50_03031A.svg.png",
+                "IconX": 5,
+                "IconY": 5,
+                "IconHeight": 50,
+                "IconWidth": 50,
+                "Preset": "light_theme\\presets\\button\\icon\\round\\tiny_outline_disabled.json"
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "infobutton"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "helpwindow"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "close"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "helpwindow"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "changelanguage"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "changelanguagefunc"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "VitalHealth_omega",
+    "Resolution": {
+      "Width": 800,
+      "Height": 480
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "LOADING",
+    "SelectedStartupLanguage": "GB",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCDGPU2D"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 800,
+        "Height": 480
+      }
+    ],
+    "PhysicalButtons": [],
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "GenerateAssetsCommandOverride": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32N6",
+    "SubFamily": "STM32N6x7",
+    "Toolchain": "STM32CubeIDE",
+    "Platform": "m55",
+    "ProjectFile": "../../STM32N6570-DK.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [
+      "GPU2D"
+    ],
+    "AdditionalFeatures": [
+      "GPU2DVector",
+      "VectorFonts",
+      "Video"
+    ]
+  },
+  "Version": "4.25.0",
+  "CreatedBy": "4.25.0"
+}

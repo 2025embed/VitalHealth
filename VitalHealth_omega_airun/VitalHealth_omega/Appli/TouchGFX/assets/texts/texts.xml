@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.25.0">
+  <Languages>
+    <Language Id="GB" />
+    <Language Id="EN" />
+  </Languages>
+  <Texts>
+    <TextGroup Id="Group1" />
+    <TextGroup Id="Unsorted">
+      <Text Id="SUGGESTDISTANCE" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">建议远眺</Translation>
+        <Translation Language="EN">Recommend to look in the distance</Translation>
+      </Text>
+      <Text Id="SUGGESTREST" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">建议休息</Translation>
+        <Translation Language="EN">Recommend to have a rest</Translation>
+      </Text>
+      <Text Id="NORMALSTATE" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">状态良好</Translation>
+        <Translation Language="EN">Good State</Translation>
+      </Text>
+      <Text Id="suggestion" Alignment="Left" TypographyId="data">
+        <Translation Language="GB"></Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="suggest" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="EN">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="BACK" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">后倾</Translation>
+        <Translation Language="EN">BACK</Translation>
+      </Text>
+      <Text Id="FRONT" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">前倾</Translation>
+        <Translation Language="EN">FRONT</Translation>
+      </Text>
+      <Text Id="RIGHT" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">右倾</Translation>
+        <Translation Language="EN">RIGHT</Translation>
+      </Text>
+      <Text Id="LEFT" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">左倾</Translation>
+        <Translation Language="EN">LEFT</Translation>
+      </Text>
+      <Text Id="NORMAL" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">正常</Translation>
+        <Translation Language="EN">NORMAL</Translation>
+      </Text>
+      <Text Id="suggetion" Alignment="Center" TypographyId="data">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="EN">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="fatidegree" Alignment="Left" TypographyId="info">
+        <Translation Language="GB">0.0</Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="degree" Alignment="Center" TypographyId="data">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="EN">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="fatiguetext" Alignment="Center" TypographyId="info">
+        <Translation Language="GB">疲劳程度</Translation>
+        <Translation Language="EN">fatigue degree</Translation>
+      </Text>
+      <Text Id="__SingleUse_6TKZ" Alignment="Left" TypographyId="discription">
+        <Translation Language="GB">VitalHealth 是一款基于人工智能技术的智能健康监测系统，专&#10;注于实时监测用户的学习状态与学习环境，通过多维度数据分&#10;析判断其健康状况，并提供实时的改善建议。本系统旨在解决&#10;当代青少年普遍存在的忽视身体健康、过度疲劳等突出问题，&#10;帮助用户建立科学的学习-健康平衡机制。</Translation>
+        <Translation Language="EN">VitalHealth is an intelligent health monitoring system based on artificial intelligence technology, focusing on real-time monitoring of users' learning status and learning environment. It analyzes multi-dimensional data to determine their health conditions and provides real-time improvement suggestions. This system aims to address the prominent issues commonly faced by contemporary teenagers, such as neglecting physical health and excessive fatigue, and helps users establish a scientific balance between learning and health.</Translation>
+      </Text>
+      <Text Id="CO2" Alignment="Left" TypographyId="data">
+        <Translation Language="GB">0.0</Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="CO2info" Alignment="Center" TypographyId="data">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="EN">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="light" Alignment="Left" TypographyId="data">
+        <Translation Language="GB">0</Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="lightinfo" Alignment="Center" TypographyId="data">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="EN">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="humi" Alignment="Left" TypographyId="data">
+        <Translation Language="GB">0.0</Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="humiinfo" Alignment="Center" TypographyId="data">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="EN">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="temp" Alignment="Left" TypographyId="data">
+        <Translation Language="GB">0.0</Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="tempinfo" Alignment="Center" TypographyId="data">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="EN">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="posture" Alignment="Left" TypographyId="data">
+        <Translation Language="GB"></Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="postureinfo" Alignment="Center" TypographyId="TOF">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="EN">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="CO2discrip" Alignment="Center" TypographyId="discription">
+        <Translation Language="GB">空气质量</Translation>
+        <Translation Language="EN">Air Quality</Translation>
+      </Text>
+      <Text Id="lightdiscrip" Alignment="Center" TypographyId="discription">
+        <Translation Language="GB">光照</Translation>
+        <Translation Language="EN">Light</Translation>
+      </Text>
+      <Text Id="humidiscrip" Alignment="Center" TypographyId="discription">
+        <Translation Language="GB">室内湿度</Translation>
+        <Translation Language="EN">Humidity</Translation>
+      </Text>
+      <Text Id="tempdiscrip" Alignment="Center" TypographyId="discription">
+        <Translation Language="GB">室内气温</Translation>
+        <Translation Language="EN">Temperature</Translation>
+      </Text>
+      <Text Id="posturediscrip" Alignment="Center" TypographyId="discription">
+        <Translation Language="GB">坐姿</Translation>
+        <Translation Language="EN">Posture</Translation>
+      </Text>
+      <Text Id="intro" Alignment="Center" TypographyId="info">
+        <Translation Language="GB">VitalHealth健康监测系统</Translation>
+        <Translation Language="EN">VitalHealth Health Monitoring system</Translation>
+      </Text>
+      <Text Id="percnt" Alignment="Left" TypographyId="percnt">
+        <Translation Language="GB">0</Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="__SingleUse_EZV9" Alignment="Center" TypographyId="percnt">
+        <Translation Language="GB">&lt;value&gt;%</Translation>
+        <Translation Language="EN">&lt;value&gt;%</Translation>
+      </Text>
+      <Text Id="__SingleUse_QVKT" Alignment="Center" TypographyId="loading">
+        <Translation Language="GB">Please wait</Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="__SingleUse_ZK3Y" Alignment="Center" TypographyId="loading">
+        <Translation Language="GB">Loading...</Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+      <Text Id="title" Alignment="Center" TypographyId="title">
+        <Translation Language="GB">VitalHealth</Translation>
+        <Translation Language="EN"></Translation>
+      </Text>
+    </TextGroup>
+  </Texts>
+  <Typographies>
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="title" Font="georgiaz.ttf" Size="100" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="loading" Font="georgiab.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="percnt" Font="GILB____.TTF" Size="50" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="info" Font="SIMYOU.TTF" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="data" Font="calibrib.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="discription" Font="STSONG.TTF" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="TOF" Font="STKAITI.TTF" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0x5DE6,0x53F3,0x524D,0x540E,0x503E,0x6B63,0x5E38" />
+  </Typographies>
+</TextDatabase>

@@ -1,0 +1,83 @@
+ST Edge AI Core v2.1.0-20194 329b0e98d
+Created date          : 2025-06-28 13:16:17
+Parameters            : generate --target stm32n6 --name tof_module_v3 -m C:/Users/lenovo/Desktop/SOC/tof/CNNnet/simple_conv3x3_all1.onnx --st-neural-art TOF@D:/StEdgeAI/2.1/scripts/N6_scripts/user_neuralart.json --workspace C:/Users/lenovo/AppData/Local/Temp/mxAI_workspace803471925765008294290842027554253 --output C:/Users/lenovo/.stm32cubemx/tof_module_v3_output
+
+Model name - simple_conv3x3_all1
+------ ------------------ ------------------- ------------ ------ -------------- 
+m_id   layer (original)   oshape              param/size     macc   connected to 
+------ ------------------ ------------------- ------------ ------ -------------- 
+0      input ()           [b:1,h:8,w:8,c:1]                                      
+------ ------------------ ------------------- ------------ ------ -------------- 
+1      output (Conv)      [b:1,h:6,w:6,c:1]   9/36            324          input 
+------ ------------------ ------------------- ------------ ------ -------------- 
+model: macc=324 weights=36 activations=-- io=--
+
+
+
+
+
+Compilation details
+------------------------------------------------------------------------------------
+Compiler version: 1.1.0-31
+Compiler arguments:  -i C:\Users\lenovo\.stm32cubemx\tof_module_v3_output\simple_conv3x3_all1_OE_3_2_0.onnx --json-quant-file C:\Users\lenovo\.stm32cubemx\tof_module_v3_output\simple_conv3x3_all1_OE_3_2_0_Q.json -g tof_module_v3.c --load-mdesc D:\StEdgeAI\2.1\Utilities\configs\stm32n6.mdesc --load-mpool D:\StEdgeAI\2.1\scripts\N6_scripts\my_mpools\stm32n6tof.mpool --save-mpool-file C:\Users\lenovo\AppData\Local\Temp\mxAI_workspace803471925765008294290842027554253\neural_art__tof_module_v3\stm32n6tof.mpool --out-dir-prefix C:\Users\lenovo\AppData\Local\Temp\mxAI_workspace803471925765008294290842027554253\neural_art__tof_module_v3/ --Os --all-buffers-info --mvei --cache-maintenance --Oauto-sched --native-float --enable-virtual-mem-pools --Omax-ca-pipe 4 --Ocache-opt --output-info-file c_info.json --network-name tof_module_v3
+====================================================================================
+
+Memory usage information  (input/output buffers are included in activations)
+------------------------------------------------------------------------------------
+	flexMEM    [0x34000000 - 0x34000000]:          0  B /          0  B  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	cpuRAM1    [0x34064000 - 0x34064000]:          0  B /          0  B  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	cpuRAM2    [0x34100000 - 0x34200000]:          0  B /      1.000 MB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	npuRAM3    [0x34200000 - 0x34270000]:          0  B /    448.000 kB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	npuRAM4    [0x34270000 - 0x342E0000]:          0  B /    448.000 kB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	npuRAM5    [0x342E0000 - 0x34350000]:        400  B /    448.000 kB  (  0.09 % used) -- weights:          0  B (  0.00 % used)  activations:        400  B (  0.09 % used)
+	npuRAM6    [0x34350000 - 0x343C0000]:          0  B /    448.000 kB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	octoFlash  [0x71000000 - 0x71100000]:         36  B /      1.000 MB  (  0.00 % used) -- weights:         36  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+	hyperRAM   [0x90000000 - 0x92000000]:          0  B /     32.000 MB  (  0.00 % used) -- weights:          0  B (  0.00 % used)  activations:          0  B (  0.00 % used)
+---
+Total:                                               436  B                                  -- weights:         36  B                  activations:        400  B                   
+====================================================================================
+
+
+Used memory ranges
+------------------------------------------------------------------------------------
+	npuRAM5    [0x342E0000 - 0x34350000]: 0x342E0000-0x342E0190
+	octoFlash  [0x71000000 - 0x71100000]: 0x71000000-0x71000030
+====================================================================================
+
+Epochs details
+------------------------------------------------------------------------------------
+Total number of epochs: 1 of which 1 implemented in software
+---
+epoch ID   HW/SW/EC Operation (SW only)
+epoch 1      -SW-   (        Conv        )
+==================================================================================== 
+ Requested memory size by section - "stm32n6npu" target
+ ------------------------------- ------- -------- ------ ----- 
+ module                             text   rodata   data   bss 
+ ------------------------------- ------- -------- ------ ----- 
+ NetworkRuntime1010_CM55_GCC.a     1,584        0      0     0 
+ tof_module_v3.o                     204      462      0     0 
+ lib (toolchain)*                      0        0      0     0 
+ ll atonn runtime                  3,612    5,676      0    13 
+ ------------------------------- ------- -------- ------ ----- 
+ RT total**                        5,400    6,138      0    13 
+ ------------------------------- ------- -------- ------ ----- 
+ weights                               0       36      0     0 
+ activations                           0        0      0   400 
+ io                                    0        0      0     0 
+ ------------------------------- ------- -------- ------ ----- 
+ TOTAL                             5,400    6,174      0   413 
+ ------------------------------- ------- -------- ------ ----- 
+ *  toolchain objects (libm/libgcc*)
+ ** RT AI runtime objects (kernels+infrastructure)
+  
+  Summary - "stm32n6npu" target
+  --------------------------------------------------
+               FLASH (ro)      %*   RAM (rw)      % 
+  --------------------------------------------------
+  RT total         11,538   99.7%         13   3.1% 
+  --------------------------------------------------
+  TOTAL            11,574                413        
+  --------------------------------------------------
+  *  rt/total
+
