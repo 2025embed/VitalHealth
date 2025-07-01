@@ -120,7 +120,8 @@ static __IO uint32_t NbMainFrames = 0;
 static IMX335_Object_t   IMX335Obj;
 static int32_t isp_gain;
 static int32_t isp_exposure;
-uint32_t*  buffer;
+
+static uint8_t camera_buffer[224*160*3]; // 224x160 RGB888
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -155,9 +156,8 @@ static ISP_StatusTypeDef SetSensorGainHelper(uint32_t Instance, int32_t Gain);
 static ISP_StatusTypeDef GetSensorGainHelper(uint32_t Instance, int32_t *Gain);
 static ISP_StatusTypeDef SetSensorExposureHelper(uint32_t Instance, int32_t Exposure);
 static ISP_StatusTypeDef GetSensorExposureHelper(uint32_t Instance, int32_t *Exposure);
-void PrintCroppedImage(void);
+void Preprocess_Camera_Image(uint8_t *camera_buffer);
 void ISP_prepare(ISP_AppliHelpersTypeDef *appliHelpers,ISP_HandleTypeDef *hcamera_isp,DCMIPP_HandleTypeDef *hdcmipp);
-//void shootapicture(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -255,19 +255,10 @@ int main(void)
   Start_Continuous_Trigger();
   HAL_Delay(100);
   HAL_UART_Receive_IT(&huart5, &rx_data, 1);  // 启动中断接收
-
   /*camera*/
-  printf("hello\n");
-  buffer = malloc(350*250*2);
-  if(buffer == NULL) printf("gg");
   MX_DCMIPP_Init();
   CAMERA_Init(&appliHelpers);
   ISP_prepare(&appliHelpers,&hcamera_isp,&hdcmipp);
-  if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 ,(uint32_t)buffer, DCMIPP_MODE_SNAPSHOT) != HAL_OK)
-   {
- 	Error_Handler();
-   }
-  //PrintCroppedImage();
   /* USER CODE END 2 */
 
   MX_ThreadX_Init();
@@ -1189,27 +1180,27 @@ static void IMX335_Probe(uint32_t Resolution, uint32_t PixelFormat)
 void ISP_prepare(ISP_AppliHelpersTypeDef *appliHelpers,ISP_HandleTypeDef *hcamera_isp,DCMIPP_HandleTypeDef *hdcmipp)
 {
 	if(ISP_Init(hcamera_isp, hdcmipp, 0, appliHelpers, ISP_IQParamCacheInit[0]) != ISP_OK)
-	    {
-	      Error_Handler();
-	    }
-	    if (HAL_DCMIPP_CSI_PIPE_Start(hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0,(uint32_t)buffer, DCMIPP_MODE_CONTINUOUS) != HAL_OK)
-	    {
-	      Error_Handler();
-	    }
-	    /* Start the Image Signal Processing */
-		if (ISP_Start(hcamera_isp) != ISP_OK)
-		{
-		  Error_Handler();
-		}
-		while(NbMainFrames < 60)
-		  {
-			BSP_LED_Toggle(LED_GREEN);
-			if (ISP_BackgroundProcess(hcamera_isp) != ISP_OK)
-			{
-			  BSP_LED_Toggle(LED_RED);
-			}
-		 }
-	 HAL_DCMIPP_CSI_PIPE_Stop(hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0);
+	{
+	  Error_Handler();
+	}
+	if (HAL_DCMIPP_CSI_PIPE_Start(hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0,BUFFER_SIZE, DCMIPP_MODE_CONTINUOUS) != HAL_OK)
+	{
+	  Error_Handler();
+	}
+	/* Start the Image Signal Processing */
+	if (ISP_Start(hcamera_isp) != ISP_OK)
+	{
+	  Error_Handler();
+	}
+	while(NbMainFrames < 10)
+				  {
+					BSP_LED_Toggle(LED_GREEN);
+					if (ISP_BackgroundProcess(hcamera_isp) != ISP_OK)
+					{
+					  BSP_LED_Toggle(LED_RED);
+					}
+				 }
+	HAL_DCMIPP_CSI_PIPE_Stop(hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0);
 }
 /**
   * @brief  ISP Middleware helper. Camera sensor info getter
@@ -1295,35 +1286,44 @@ void HAL_DCMIPP_PIPE_VsyncEventCallback(DCMIPP_HandleTypeDef *hdcmipp, uint32_t 
   }
 }
 
-void PrintCroppedImage(void)
+void Preprocess_Camera_Image(uint8_t *camera_buffer)
 {
-	printf("hello");
-    uint16_t *frame = (uint16_t *)0x34200000;
-    for(int y = 0; y < 100; y++)
-    {
-        for(int x = 0; x <200 ; x++)
-        {
-            uint16_t pixel = frame[y * 324 + x];
+    uint16_t *src = (uint16_t *)0x34200000;
+    int src_width = 352;
+    int src_height = 243;  
+    int crop_w = 224;
+    int crop_h = 160;
+    int start_x = (src_width - crop_w) / 2;  // = 64
+    int start_y = (src_height - crop_h) / 2; // = 41
 
-            uint8_t r = (pixel >> 11) & 0x1F;
-            uint8_t g = (pixel >> 5) & 0x3F;
-            uint8_t b = pixel & 0x1F;
+    uint8_t *dst_r = camera_buffer;
+    uint8_t *dst_g = camera_buffer + crop_w * crop_h;
+    uint8_t *dst_b = camera_buffer + crop_w * crop_h * 2;
 
-            // 平滑扩展到8位
+    for (int y = 0; y < crop_h; y++) {
+        for (int x = 0; x < crop_w; x++) {
+            int src_idx = (start_y + y) * src_width + (start_x + x);
+            uint16_t pixel = src[src_idx];
+
+            // RGB565 -> RGB888
+            uint8_t r = ((pixel >> 11) & 0x1F);
+            uint8_t g = ((pixel >> 5) & 0x3F);
+            uint8_t b = (pixel & 0x1F);
+
+            // scale to 8-bit
             r = (r << 3) | (r >> 2);
             g = (g << 2) | (g >> 4);
             b = (b << 3) | (b >> 2);
+            //调试
+            //printf("%d,%d,%d;", r, g, b);
 
-            printf("%d,%d,%d;", r, g, b);
+            int dst_idx = y * crop_w + x;
+            dst_r[dst_idx] = r;
+            dst_g[dst_idx] = g;
+            dst_b[dst_idx] = b;
         }
     }
-    free(buffer);
-    printf("\n");
 }
-
-
-
-
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
   if (huart->Instance == UART5) {
@@ -1474,13 +1474,32 @@ void TOF_DESTROY()
 
 void SNOPSHOT()
 {
-
+	if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0,BUFFER_SIZE, DCMIPP_MODE_CONTINUOUS) != HAL_OK)
+		   {
+			      Error_Handler();
+		   }
+	//自动处理曝光
+	while(NbMainFrames < 3)
+					  {
+						BSP_LED_Toggle(LED_GREEN);
+						if (ISP_BackgroundProcess(&hcamera_isp) != ISP_OK)
+						{
+						  BSP_LED_Toggle(LED_RED);
+						}
+					 }
+	HAL_DCMIPP_CSI_PIPE_Stop(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0);
+	if (HAL_DCMIPP_CSI_PIPE_Start(&hdcmipp, DCMIPP_PIPE1, DCMIPP_VIRTUAL_CHANNEL0 ,BUFFER_SIZE, DCMIPP_MODE_SNAPSHOT) != HAL_OK)
+	  {
+	 	Error_Handler();
+	  }
+	Preprocess_Camera_Image(camera_buffer);
 }
 
 void CAMERA_RUN()
 {
 
 }
+
 
 void CAMERA_INIT()
 {

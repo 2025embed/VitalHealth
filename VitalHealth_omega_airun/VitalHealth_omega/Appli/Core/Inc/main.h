@@ -109,6 +109,7 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
 #define CAMERA_IMX335_ADDRESS 0x34U
+#define BUFFER_SIZE 0x34400000
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

@@ -363,6 +363,23 @@
             }
           },
           {
+            "Type": "ButtonWithIcon",
+            "Name": "camerademo",
+            "X": 740,
+            "Y": 418,
+            "Width": 60,
+            "Height": 60,
+            "Pressed": "__generated\\light_theme_images_widgets_button_icon_round_tiny_outline_disabled.png",
+            "Released": "__generated\\light_theme_images_widgets_button_icon_round_tiny_outline_disabled.png",
+            "IconPressed": "__generated\\icon_theme_images_image_camera_alt_50_50_0A1642.svg.png",
+            "IconReleased": "__generated\\icon_theme_images_image_camera_alt_50_50_0A1642.svg.png",
+            "IconX": 6,
+            "IconY": 7,
+            "IconHeight": 50,
+            "IconWidth": 50,
+            "Preset": "light_theme\\presets\\button\\icon\\round\\tiny_outline_disabled.json"
+          },
+          {
             "Type": "ModalWindow",
             "Name": "helpwindow",
             "Width": 800,
@@ -449,6 +466,67 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "changelanguagefunc"
+            }
+          },
+          {
+            "InteractionName": "Interaction4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "camerademo"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "CAMERASCREEN"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "CAMERASCREEN",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "bg",
+            "Width": 800,
+            "Height": 480,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "ButtonWithIcon",
+            "Name": "goback",
+            "X": 712,
+            "Y": -87,
+            "Width": 176,
+            "Height": 175,
+            "Pressed": "__generated\\light_theme_images_widgets_button_icon_round_large_fill_pressed.png",
+            "Released": "__generated\\light_theme_images_widgets_button_icon_round_large_fill_normal.png",
+            "IconPressed": "__generated\\icon_theme_images_hardware_keyboard_return_50_50_F0F7FA.svg.png",
+            "IconReleased": "__generated\\icon_theme_images_hardware_keyboard_return_50_50_F0F7FA.svg.png",
+            "IconX": 28,
+            "IconY": 100,
+            "IconHeight": 50,
+            "IconWidth": 50,
+            "Preset": "light_theme\\presets\\button\\icon\\round\\large_fill_normal.json"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "goback"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "MAIN"
             }
           }
         ]

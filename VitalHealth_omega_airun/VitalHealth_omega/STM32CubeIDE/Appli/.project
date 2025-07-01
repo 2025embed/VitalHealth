@@ -1147,6 +1147,16 @@
 			<location>E:/stm32 project/VitalHealth_omega_airun/VitalHealth_omega/Middlewares/ST/AI/Npu/Devices/STM32N6XX/npu_cache.c</location>
 		</link>
 		<link>
+			<name>Application/User/gui/CAMERASCREENPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/gui/src/camerascreen_screen/CAMERASCREENPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/CAMERASCREENView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/gui/src/camerascreen_screen/CAMERASCREENView.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/gui/FrontendApplication.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/gui/src/common/FrontendApplication.cpp</locationURI>
@@ -1497,6 +1507,11 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/fonts/src/VectorFontRendererBuffers.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/CAMERASCREENViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/gui_generated/src/camerascreen_screen/CAMERASCREENViewBase.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/FrontendApplicationBase.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp</locationURI>
@@ -1542,6 +1557,16 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/images/src/__generated/image_icon_theme_images_action_language_50_50_E8F6FB.svg.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_icon_theme_images_hardware_keyboard_return_50_50_F0F7FA.svg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/images/src/__generated/image_icon_theme_images_hardware_keyboard_return_50_50_F0F7FA.svg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_icon_theme_images_image_camera_alt_50_50_0A1642.svg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/images/src/__generated/image_icon_theme_images_image_camera_alt_50_50_0A1642.svg.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_icon_theme_images_navigation_close_50_50_03031A.svg.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/images/src/__generated/image_icon_theme_images_navigation_close_50_50_03031A.svg.cpp</locationURI>
@@ -1555,6 +1580,16 @@
 			<name>Application/User/generated/image_light_theme_images_containers_large_wide_outlined_dark.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/images/src/__generated/image_light_theme_images_containers_large_wide_outlined_dark.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_light_theme_images_widgets_button_icon_round_large_fill_normal.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/images/src/__generated/image_light_theme_images_widgets_button_icon_round_large_fill_normal.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_light_theme_images_widgets_button_icon_round_large_fill_pressed.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Appli/TouchGFX/generated/images/src/__generated/image_light_theme_images_widgets_button_icon_round_large_fill_pressed.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_light_theme_images_widgets_button_icon_round_tiny_outline_disabled.cpp</name>
